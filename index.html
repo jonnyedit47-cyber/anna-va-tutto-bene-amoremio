@@ -3,161 +3,223 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f58aaa">
 
 <title>Per Anna ❤️</title>
 
 <style>
+:root {
+    --pink: #ed5c86;
+    --pink-dark: #d83f6b;
+    --pink-light: #ffdce7;
+    --cream: #fff7fa;
+    --text: #63283e;
+    --soft: #8b5268;
+}
+
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     min-height: 100vh;
     font-family: "Trebuchet MS", Arial, sans-serif;
-    background: linear-gradient(135deg, #fff0f5, #ffdce8, #fff5f8);
-    color: #68263e;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 15%, #ffffff 0, transparent 25%),
+        radial-gradient(circle at 85% 80%, #ffd2e0 0, transparent 30%),
+        linear-gradient(135deg, #fff1f6, #ffdce8, #fff7fa);
     overflow-x: hidden;
 }
 
-/* CUORI SULLO SFONDO */
+button {
+    font-family: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================
+   CUORI SFONDO
+========================= */
 
 .heart {
     position: fixed;
-    color: #f28baa;
-    opacity: 0.35;
-    font-size: 30px;
-    animation: float 7s infinite ease-in-out;
+    z-index: 0;
+    color: #ee7599;
+    opacity: .25;
     pointer-events: none;
+    animation: floating 7s ease-in-out infinite;
 }
 
-.h1 { top: 10%; left: 8%; animation-delay: 0s; }
-.h2 { top: 25%; right: 8%; animation-delay: 2s; }
-.h3 { top: 65%; left: 5%; animation-delay: 1s; }
-.h4 { top: 75%; right: 10%; animation-delay: 3s; }
-.h5 { top: 45%; left: 15%; animation-delay: 4s; }
+.h1 { top: 9%; left: 6%; font-size: 32px; }
+.h2 { top: 20%; right: 7%; font-size: 42px; animation-delay: 1s; }
+.h3 { top: 58%; left: 4%; font-size: 25px; animation-delay: 2s; }
+.h4 { top: 72%; right: 8%; font-size: 35px; animation-delay: 3s; }
+.h5 { top: 40%; left: 14%; font-size: 20px; animation-delay: 4s; }
+.h6 { top: 85%; left: 20%; font-size: 28px; animation-delay: 2.5s; }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(-8deg);
+@keyframes floating {
+    0%,100% {
+        transform: translateY(0) rotate(-5deg);
     }
-
     50% {
-        transform: translateY(-25px) rotate(8deg);
+        transform: translateY(-22px) rotate(7deg);
     }
 }
 
-/* CONTENITORE */
+/* =========================
+   CONTENITORE
+========================= */
 
 .container {
-    width: 100%;
-    max-width: 700px;
+    position: relative;
+    z-index: 1;
+    width: min(100%, 760px);
     margin: auto;
-    padding: 35px 20px 50px;
+    padding: 32px 18px 60px;
     text-align: center;
 }
 
-/* NOME */
+/* =========================
+   HEADER
+========================= */
+
+.top-heart {
+    color: var(--pink);
+    font-size: 25px;
+    letter-spacing: 8px;
+}
 
 .name {
+    margin: 5px 0 0;
     font-family: Georgia, serif;
-    font-size: 70px;
+    font-size: clamp(55px, 15vw, 90px);
     font-style: italic;
-    color: #e94f7b;
-    margin: 10px 0 0;
-    text-shadow: 0 4px 15px rgba(233, 79, 123, 0.2);
+    color: var(--pink);
+    text-shadow: 0 5px 20px rgba(220,60,110,.15);
 }
 
-.small-heart {
-    color: #ec5c83;
-    font-size: 25px;
+.decor {
+    margin: 4px 0 18px;
+    color: #ef7295;
+    font-size: 22px;
 }
-
-/* TITOLO */
 
 h1 {
+    margin: 0 0 12px;
     font-family: Georgia, serif;
-    font-size: 38px;
-    margin: 15px 0 10px;
+    font-size: clamp(29px, 7vw, 43px);
 }
 
 .subtitle {
-    font-size: 20px;
-    line-height: 1.6;
-    color: #87465c;
+    max-width: 580px;
+    margin: auto;
+    color: var(--soft);
+    font-size: 19px;
+    line-height: 1.65;
 }
 
-/* CUORE DECORATIVO */
+/* =========================
+   BOTTONI
+========================= */
 
-.decor {
-    font-size: 25px;
-    color: #ed6489;
-    margin: 15px 0;
-}
-
-/* PULSANTE */
-
-button {
-    border: none;
-    cursor: pointer;
+.main-button {
+    border: 0;
+    margin-top: 27px;
+    padding: 17px 42px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #f56c94, #dd396b);
+    color: white;
     font-size: 20px;
     font-weight: bold;
-    color: white;
-    background: linear-gradient(135deg, #f25d87, #df3769);
-    padding: 17px 45px;
-    border-radius: 50px;
-    box-shadow: 0 10px 25px rgba(220, 55, 105, 0.3);
-    transition: 0.25s;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(215,57,105,.28);
+    transition: .2s ease;
 }
 
-button:hover {
+.main-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(220, 55, 105, 0.4);
 }
 
-button:active {
-    transform: scale(0.97);
+.main-button:active {
+    transform: scale(.97);
 }
 
-/* MESSAGGIO */
+.secondary-button {
+    border: 1px solid #f5b0c3;
+    margin: 10px 5px;
+    padding: 13px 21px;
+    border-radius: 999px;
+    background: rgba(255,255,255,.7);
+    color: var(--pink-dark);
+    font-size: 15px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.secondary-button:hover {
+    background: white;
+}
+
+/* =========================
+   FRASE
+========================= */
 
 .love-message {
-    margin: 25px auto;
-    font-size: 18px;
-    color: #d64c76;
+    margin: 24px auto;
+    color: #d94c76;
+    font-size: 17px;
 }
 
-/* SEZIONE RESPIRAZIONE */
+/* =========================
+   PANNELLO RESPIRAZIONE
+========================= */
+
+.panel {
+    margin-top: 28px;
+    padding: 25px 18px;
+    border: 1px solid rgba(255,255,255,.9);
+    border-radius: 32px;
+    background: rgba(255,255,255,.48);
+    box-shadow: 0 15px 45px rgba(170,60,100,.09);
+    backdrop-filter: blur(10px);
+}
 
 #breathing {
     display: none;
-    margin-top: 35px;
 }
 
-/* CERCHIO */
-
-.circle-container {
-    width: 280px;
-    height: 280px;
-    margin: 30px auto;
+.circle-area {
+    width: 285px;
+    height: 285px;
+    margin: 18px auto;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .circle {
-    width: 190px;
-    height: 190px;
+    width: 175px;
+    height: 175px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #ffd4e1, #f56b94);
-    box-shadow:
-        0 0 0 12px rgba(245, 107, 148, 0.15),
-        0 0 0 25px rgba(245, 107, 148, 0.08),
-        0 15px 40px rgba(220, 60, 110, 0.25);
-
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background:
+        radial-gradient(circle at 32% 27%, #ffeaf1, #f57599 65%, #df416f);
+
+    box-shadow:
+        0 0 0 12px rgba(245,117,153,.14),
+        0 0 0 25px rgba(245,117,153,.07),
+        0 18px 45px rgba(210,60,110,.23);
 
     transform: scale(1);
     transition: transform 4s ease-in-out;
@@ -165,132 +227,288 @@ button:active {
 
 .circle-heart {
     color: white;
-    font-size: 55px;
-    text-shadow: 0 3px 10px rgba(180, 40, 80, 0.2);
+    font-size: 52px;
+    text-shadow: 0 3px 10px rgba(160,40,80,.2);
 }
-
-/* FASE */
 
 .phase {
     font-family: Georgia, serif;
-    font-size: 32px;
+    color: var(--pink-dark);
+    font-size: 31px;
     font-weight: bold;
-    color: #df4c77;
-    margin-top: 10px;
 }
 
 .counter {
-    font-size: 55px;
+    margin-top: 3px;
+    color: #6f344a;
+    font-size: 48px;
     font-weight: bold;
-    color: #7b3049;
-    margin-top: 5px;
 }
 
 .seconds {
-    color: #986073;
+    color: var(--soft);
 }
 
-/* BOX ISTRUZIONI */
+/* =========================
+   ISTRUZIONI
+========================= */
 
 .instructions {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 12px;
-    margin: 30px 0;
+    margin-top: 25px;
 }
 
 .card {
-    background: rgba(255,255,255,0.65);
-    border: 1px solid rgba(255,255,255,0.8);
-    border-radius: 20px;
-    padding: 18px 10px;
-    box-shadow: 0 8px 25px rgba(180, 70, 100, 0.08);
+    padding: 17px 10px;
+    border-radius: 21px;
+    background: rgba(255,255,255,.65);
+    box-shadow: 0 8px 24px rgba(180,70,100,.07);
 }
 
-.card .icon {
-    font-size: 25px;
+.card-icon {
+    font-size: 23px;
 }
 
 .card strong {
     display: block;
-    color: #e04e78;
-    margin: 8px 0;
+    margin: 7px 0;
+    color: var(--pink-dark);
 }
 
 .card span {
-    font-size: 14px;
-    line-height: 1.4;
-    color: #795062;
+    color: var(--soft);
+    font-size: 13px;
+    line-height: 1.45;
 }
 
-/* MESSAGGIO FINALE */
+/* =========================
+   FUNZIONI
+========================= */
+
+.tools {
+    margin-top: 28px;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 13px;
+    margin-top: 18px;
+}
+
+.tool {
+    min-height: 105px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 23px;
+    background: rgba(255,255,255,.62);
+    cursor: pointer;
+    color: var(--text);
+    box-shadow: 0 8px 25px rgba(180,70,100,.07);
+    transition: .2s;
+}
+
+.tool:hover {
+    transform: translateY(-2px);
+}
+
+.tool-icon {
+    font-size: 27px;
+}
+
+.tool-title {
+    margin-top: 7px;
+    color: var(--pink-dark);
+    font-weight: bold;
+}
+
+/* =========================
+   SEZIONI EXTRA
+========================= */
+
+.extra {
+    display: none;
+    margin-top: 18px;
+    padding: 24px;
+    border-radius: 26px;
+    background: rgba(255,255,255,.75);
+    box-shadow: 0 10px 30px rgba(180,70,100,.08);
+    text-align: left;
+}
+
+.extra h2 {
+    margin-top: 0;
+    text-align: center;
+    color: var(--pink-dark);
+    font-family: Georgia, serif;
+}
+
+.extra p {
+    line-height: 1.7;
+    color: var(--soft);
+}
+
+/* =========================
+   5 SENSI
+========================= */
+
+.grounding-step {
+    display: none;
+    text-align: center;
+}
+
+.grounding-number {
+    color: var(--pink);
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.grounding-question {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.grounding-buttons {
+    text-align: center;
+}
+
+/* =========================
+   MESSAGGI
+========================= */
+
+.message-box {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px;
+    background: #fff2f6;
+    color: #d84b75;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* =========================
+   SUONO
+========================= */
+
+.sound-status {
+    text-align: center;
+    margin: 15px 0;
+    color: var(--soft);
+}
+
+/* =========================
+   FINALE
+========================= */
 
 .final-message {
-    background: rgba(255,255,255,0.65);
-    border-radius: 25px;
-    padding: 25px;
-    margin-top: 30px;
-    box-shadow: 0 8px 25px rgba(180, 70, 100, 0.08);
+    margin-top: 28px;
+    padding: 28px 20px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.65);
+    box-shadow: 0 10px 30px rgba(180,70,100,.07);
 }
 
 .final-message h2 {
+    margin-top: 0;
+    color: var(--pink-dark);
     font-family: Georgia, serif;
-    color: #df4c77;
 }
 
 .love {
+    margin-top: 15px;
+    color: #e24e78;
     font-family: Georgia, serif;
+    font-size: 28px;
     font-style: italic;
-    font-size: 25px;
-    color: #e34f7a;
 }
 
-/* NOTA */
+/* =========================
+   NOTA
+========================= */
 
 .disclaimer {
+    margin: 28px auto 0;
+    max-width: 620px;
+    color: #8b6875;
     font-size: 12px;
-    line-height: 1.5;
-    color: #8d6875;
-    margin-top: 30px;
+    line-height: 1.6;
 }
 
-/* MOBILE */
+/* =========================
+   MODALITÀ CALMA
+========================= */
+
+body.calm-mode {
+    background: #fff7fa;
+}
+
+body.calm-mode .heart,
+body.calm-mode .tools,
+body.calm-mode .instructions,
+body.calm-mode .love-message,
+body.calm-mode .name,
+body.calm-mode .top-heart,
+body.calm-mode .decor {
+    display: none;
+}
+
+body.calm-mode .container {
+    padding-top: 10vh;
+}
+
+body.calm-mode h1 {
+    font-size: clamp(30px, 8vw, 48px);
+}
+
+/* =========================
+   ANIMAZIONI RIDOTTE
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
     .container {
-        padding: 25px 15px 40px;
+        padding: 25px 14px 45px;
     }
 
-    .name {
-        font-size: 55px;
+    .instructions,
+    .tool-grid {
+        grid-template-columns: 1fr;
     }
 
-    h1 {
-        font-size: 30px;
-    }
-
-    .subtitle {
-        font-size: 17px;
-    }
-
-    .circle-container {
+    .circle-area {
         width: 250px;
         height: 250px;
     }
 
     .circle {
-        width: 165px;
-        height: 165px;
+        width: 160px;
+        height: 160px;
     }
 
-    .instructions {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .card {
-        padding: 14px;
+    .panel {
+        padding: 20px 12px;
     }
 }
 </style>
@@ -298,22 +516,20 @@ button:active {
 
 <body>
 
-<!-- CUORI -->
-
 <div class="heart h1">♥</div>
 <div class="heart h2">♥</div>
 <div class="heart h3">♡</div>
 <div class="heart h4">♥</div>
 <div class="heart h5">♡</div>
-
+<div class="heart h6">♥</div>
 
 <div class="container">
 
-    <!-- HOME -->
+    <!-- ================= HOME ================= -->
 
     <section id="welcome">
 
-        <div class="small-heart">♥ ♥ ♥</div>
+        <div class="top-heart">♥ ♥ ♥</div>
 
         <div class="name">Anna</div>
 
@@ -321,121 +537,257 @@ button:active {
 
         <h1>Va tutto bene, amore.</h1>
 
-        <div class="subtitle">
+        <p class="subtitle">
             Sei al sicuro.<br>
-            Sono qui con te.<br>
+            Non devi risolvere niente adesso.<br>
             Facciamo un respiro alla volta, insieme. ❤️
-        </div>
+        </p>
 
-        <button onclick="startBreathing()">
+        <button class="main-button" onclick="startBreathing()">
             ♥ &nbsp; RESPIRA
         </button>
 
         <div class="love-message">
-            ♥ Sono fiero di te, ogni giorno. ♥
+            ♥ Sono qui con te. ♥
         </div>
 
     </section>
 
 
-    <!-- RESPIRAZIONE -->
+    <!-- ================= RESPIRAZIONE ================= -->
 
     <section id="breathing">
 
-        <div class="subtitle">
-            Un respiro alla volta, Anna. ❤️
+        <div class="panel">
+
+            <p class="subtitle">
+                Un respiro alla volta, Anna. ❤️
+            </p>
+
+            <div class="circle-area">
+
+                <div class="circle" id="circle">
+
+                    <div class="circle-heart">♥</div>
+
+                </div>
+
+            </div>
+
+            <div class="phase" id="phase">
+                Preparati
+            </div>
+
+            <div class="counter" id="counter">3</div>
+
+            <div class="seconds">secondi</div>
+
+
+            <div class="instructions">
+
+                <div class="card">
+                    <div class="card-icon">♥</div>
+                    <strong>INSPIRA</strong>
+                    <span>
+                        Inspira lentamente
+                        per 4 secondi.
+                    </span>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">♡</div>
+                    <strong>TRATTIENI</strong>
+                    <span>
+                        Rimani tranquilla
+                        per 4 secondi.
+                    </span>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">♥</div>
+                    <strong>ESPIRA</strong>
+                    <span>
+                        Lascia uscire lentamente
+                        l'aria per 6 secondi.
+                    </span>
+                </div>
+
+            </div>
+
+
+            <button class="secondary-button" onclick="restart()">
+                ↻ Ricomincia
+            </button>
+
+            <button class="secondary-button" onclick="stopBreathing()">
+                ■ Fermati
+            </button>
+
         </div>
 
-        <div class="circle-container">
 
-            <div class="circle" id="circle">
+        <!-- ================= STRUMENTI ================= -->
 
-                <div class="circle-heart">
-                    ♥
+        <div class="tools">
+
+            <h2 style="font-family:Georgia,serif;color:#d94c76;">
+                Se vuoi, possiamo fare altro ❤️
+            </h2>
+
+            <div class="tool-grid">
+
+                <button class="tool" onclick="openGrounding()">
+                    <div class="tool-icon">🌸</div>
+                    <div class="tool-title">
+                        Torna al presente
+                    </div>
+                </button>
+
+                <button class="tool" onclick="openMessages()">
+                    <div class="tool-icon">💗</div>
+                    <div class="tool-title">
+                        Leggi questo
+                    </div>
+                </button>
+
+                <button class="tool" onclick="toggleSound()">
+                    <div class="tool-icon">🎵</div>
+                    <div class="tool-title">
+                        Suono tranquillo
+                    </div>
+                </button>
+
+                <button class="tool" onclick="calmMode()">
+                    <div class="tool-icon">🌙</div>
+                    <div class="tool-title">
+                        Modalità calma
+                    </div>
+                </button>
+
+            </div>
+
+
+            <!-- ================= GROUNDING ================= -->
+
+            <div class="extra" id="grounding">
+
+                <h2>Torniamo qui, insieme 🌸</h2>
+
+                <div class="grounding-step" id="groundStep"></div>
+
+                <div class="grounding-buttons">
+
+                    <button class="secondary-button"
+                            onclick="previousGrounding()">
+                        ← Indietro
+                    </button>
+
+                    <button class="secondary-button"
+                            onclick="nextGrounding()">
+                        Avanti →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MESSAGGI ================= -->
+
+            <div class="extra" id="messages">
+
+                <h2>Per Anna ❤️</h2>
+
+                <div class="message-box" id="loveText">
+                    Non devi fare tutto adesso.
+                </div>
+
+                <div style="text-align:center;">
+
+                    <button class="secondary-button"
+                            onclick="nextMessage()">
+                        Un altro messaggio ♥
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUONO ================= -->
+
+            <div class="extra" id="soundPanel">
+
+                <h2>Un piccolo suono tranquillo 🎵</h2>
+
+                <div class="sound-status" id="soundStatus">
+                    Premi il pulsante per iniziare.
+                </div>
+
+                <div style="text-align:center;">
+
+                    <button class="secondary-button"
+                            onclick="toggleSound()">
+                        <span id="soundButton">
+                            ▶ Avvia
+                        </span>
+                    </button>
+
+                </div>
+
+                <p style="text-align:center;">
+                    Puoi fermarlo in qualsiasi momento.
+                </p>
+
+            </div>
+
+
+            <!-- ================= FINALE ================= -->
+
+            <div class="final-message">
+
+                <h2>Ricorda, Anna ❤️</h2>
+
+                <p>
+                    Non devi essere forte in questo momento.
+                    Puoi semplicemente restare qui.
+                </p>
+
+                <p>
+                    Guarda intorno a te.
+                    Senti i tuoi piedi.
+                    Fai un respiro normale.
+                    Prenditi tutto il tempo che ti serve.
+                </p>
+
+                <p>
+                    Questa sensazione può essere molto intensa,
+                    ma non devi affrontare tutto in una volta.
+                </p>
+
+                <div class="love">
+                    Ti amo. ♥
                 </div>
 
             </div>
 
         </div>
 
-        <div class="phase" id="phase">
-            Preparati
-        </div>
-
-        <div class="counter" id="counter">
-            3
-        </div>
-
-        <div class="seconds">
-            secondi
-        </div>
-
-
-        <div class="instructions">
-
-            <div class="card">
-                <div class="icon">♥</div>
-                <strong>INSPIRA</strong>
-                <span>
-                    Inspira lentamente<br>
-                    per 4 secondi.
-                </span>
-            </div>
-
-            <div class="card">
-                <div class="icon">♡</div>
-                <strong>TRATTIENI</strong>
-                <span>
-                    Rimani ferma<br>
-                    per 4 secondi.
-                </span>
-            </div>
-
-            <div class="card">
-                <div class="icon">♥</div>
-                <strong>ESPIRA</strong>
-                <span>
-                    Lascia uscire lentamente<br>
-                    l'aria per 6 secondi.
-                </span>
-            </div>
-
-        </div>
-
-
-        <button onclick="restart()">
-            ↻ &nbsp; Ricomincia
-        </button>
-
-
-        <div class="final-message">
-
-            <h2>Ricorda, Anna ❤️</h2>
-
-            <p>
-                Non devi affrontare tutto in una volta.
-                Prenditi il tuo tempo.
-            </p>
-
-            <p>
-                Questa sensazione passerà.
-                Un respiro alla volta.
-            </p>
-
-            <div class="love">
-                Ti amo. ♥
-            </div>
-
-        </div>
-
     </section>
 
 
+    <!-- ================= NOTA ================= -->
+
     <div class="disclaimer">
-        Questo sito offre un semplice esercizio di respirazione
-        e non sostituisce l'aiuto di un professionista.
-        Se i sintomi sono nuovi, molto intensi o temi che ci sia
-        un'emergenza, cerca assistenza medica immediata.
+
+        Questo sito è pensato come supporto durante momenti
+        di ansia e offre semplici esercizi di respirazione
+        e grounding. Non sostituisce un professionista sanitario.
+
+        Se i sintomi sono nuovi, molto intensi, diversi dal solito,
+        o c'è il sospetto di un'emergenza, cerca assistenza medica
+        immediata o contatta i servizi di emergenza del luogo in cui ti trovi.
+
     </div>
 
 </div>
@@ -443,72 +795,59 @@ button:active {
 
 <script>
 
+/* =====================================
+   RESPIRAZIONE
+===================================== */
+
 let running = false;
 
 const circle = document.getElementById("circle");
 const phase = document.getElementById("phase");
 const counter = document.getElementById("counter");
 
-
 function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
 
 async function countdown(seconds) {
 
     for (let i = seconds; i > 0; i--) {
 
+        if (!running) return false;
+
         counter.textContent = i;
 
         await wait(1000);
-
-        if (!running) return;
     }
-}
 
+    return true;
+}
 
 async function breathingCycle() {
 
     while (running) {
 
-        /* INSPIRA */
-
         phase.textContent = "Inspira";
-
         circle.style.transitionDuration = "4s";
         circle.style.transform = "scale(1.35)";
 
-        await countdown(4);
+        if (!await countdown(4)) return;
 
-        if (!running) return;
-
-
-        /* TRATTIENI */
 
         phase.textContent = "Trattieni";
-
         circle.style.transitionDuration = "4s";
         circle.style.transform = "scale(1.35)";
 
-        await countdown(4);
+        if (!await countdown(4)) return;
 
-        if (!running) return;
-
-
-        /* ESPIRA */
 
         phase.textContent = "Espira";
-
         circle.style.transitionDuration = "6s";
         circle.style.transform = "scale(1)";
 
-        await countdown(6);
-
-        if (!running) return;
+        if (!await countdown(6)) return;
     }
 }
-
 
 async function startBreathing() {
 
@@ -521,19 +860,27 @@ async function startBreathing() {
 
     phase.textContent = "Preparati";
 
-    await countdown(3);
-
-    if (running) {
+    if (await countdown(3)) {
         breathingCycle();
     }
 }
 
+function stopBreathing() {
+
+    running = false;
+
+    phase.textContent = "Fermati";
+    counter.textContent = "♥";
+
+    circle.style.transitionDuration = ".5s";
+    circle.style.transform = "scale(1)";
+}
 
 function restart() {
 
     running = false;
 
-    circle.style.transitionDuration = "0.5s";
+    circle.style.transitionDuration = ".5s";
     circle.style.transform = "scale(1)";
 
     setTimeout(() => {
@@ -546,6 +893,297 @@ function restart() {
 
     }, 500);
 }
+
+
+/* =====================================
+   5-4-3-2-1 GROUNDING
+===================================== */
+
+const groundingSteps = [
+
+    {
+        number: "5",
+        question: "Cosa vedi?",
+        text: "Trova 5 cose che puoi vedere intorno a te. Guardale lentamente."
+    },
+
+    {
+        number: "4",
+        question: "Cosa puoi toccare?",
+        text: "Nota 4 cose che puoi sentire con le mani o con il corpo."
+    },
+
+    {
+        number: "3",
+        question: "Cosa senti?",
+        text: "Ascolta 3 suoni. Anche il più piccolo va bene."
+    },
+
+    {
+        number: "2",
+        question: "Cosa senti nell'aria?",
+        text: "Nota 2 odori intorno a te, senza cercarli."
+    },
+
+    {
+        number: "1",
+        question: "Cosa puoi assaporare?",
+        text: "Nota 1 sapore nella tua bocca."
+    }
+
+];
+
+let groundingIndex = 0;
+
+function openGrounding() {
+
+    document.getElementById("grounding").style.display = "block";
+
+    groundingIndex = 0;
+
+    showGrounding();
+
+    document.getElementById("grounding")
+        .scrollIntoView({ behavior: "smooth" });
+}
+
+function showGrounding() {
+
+    const step = groundingSteps[groundingIndex];
+
+    document.getElementById("groundStep").style.display = "block";
+
+    document.getElementById("groundStep").innerHTML = `
+
+        <div class="grounding-number">
+            ${step.number}
+        </div>
+
+        <div class="grounding-question">
+            ${step.question}
+        </div>
+
+        <p style="text-align:center;">
+            ${step.text}
+        </p>
+
+    `;
+}
+
+function nextGrounding() {
+
+    if (groundingIndex < groundingSteps.length - 1) {
+
+        groundingIndex++;
+
+        showGrounding();
+
+    } else {
+
+        document.getElementById("groundStep").innerHTML = `
+
+            <div class="grounding-number">♥</div>
+
+            <div class="grounding-question">
+                Sei qui.
+            </div>
+
+            <p style="text-align:center;">
+                Hai riportato l'attenzione al presente.
+                Prenditi un momento. Non devi fare altro.
+            </p>
+        `;
+    }
+}
+
+function previousGrounding() {
+
+    if (groundingIndex > 0) {
+
+        groundingIndex--;
+
+        showGrounding();
+    }
+}
+
+
+/* =====================================
+   MESSAGGI
+===================================== */
+
+const messages = [
+
+    "Anna, non devi risolvere niente adesso. ❤️",
+
+    "Un respiro alla volta. Sono qui con te.",
+
+    "Puoi prenderti tutto il tempo che ti serve. 🌸",
+
+    "Non sei sola. Non devi affrontare questo momento tutta da sola.",
+
+    "Guarda intorno a te. Sei qui, adesso.",
+
+    "Non devi combattere contro ogni sensazione. Lascia che passi lentamente.",
+
+    "Sono fiero di te anche quando hai paura. ❤️",
+
+    "Puoi fermarti. Puoi respirare. Puoi aspettare.",
+
+    "Questo momento non durerà per sempre.",
+
+    "Ti amo. Un momento alla volta. ♥"
+
+];
+
+let messageIndex = 0;
+
+function openMessages() {
+
+    document.getElementById("messages").style.display = "block";
+
+    document.getElementById("messages")
+        .scrollIntoView({ behavior: "smooth" });
+}
+
+function nextMessage() {
+
+    messageIndex++;
+
+    if (messageIndex >= messages.length) {
+        messageIndex = 0;
+    }
+
+    document.getElementById("loveText").textContent =
+        messages[messageIndex];
+}
+
+
+/* =====================================
+   SUONO TRANQUILLO
+===================================== */
+
+let audioContext = null;
+let oscillator = null;
+let gainNode = null;
+let soundPlaying = false;
+
+function toggleSound() {
+
+    const panel = document.getElementById("soundPanel");
+
+    panel.style.display = "block";
+
+    if (!soundPlaying) {
+
+        startSound();
+
+        panel.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    } else {
+
+        stopSound();
+    }
+}
+
+function startSound() {
+
+    audioContext = new (
+        window.AudioContext ||
+        window.webkitAudioContext
+    )();
+
+    oscillator = audioContext.createOscillator();
+
+    gainNode = audioContext.createGain();
+
+    oscillator.type = "sine";
+
+    oscillator.frequency.value = 220;
+
+    gainNode.gain.value = 0.025;
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    oscillator.start();
+
+    soundPlaying = true;
+
+    document.getElementById("soundStatus").textContent =
+        "Suono attivo. Puoi semplicemente ascoltare. ❤️";
+
+    document.getElementById("soundButton").textContent =
+        "■ Ferma";
+}
+
+function stopSound() {
+
+    if (oscillator) {
+
+        try {
+            oscillator.stop();
+        } catch(e) {}
+
+        oscillator.disconnect();
+        gainNode.disconnect();
+
+        oscillator = null;
+        gainNode = null;
+    }
+
+    if (audioContext) {
+
+        audioContext.close();
+
+        audioContext = null;
+    }
+
+    soundPlaying = false;
+
+    document.getElementById("soundStatus").textContent =
+        "Suono fermato.";
+
+    document.getElementById("soundButton").textContent =
+        "▶ Avvia";
+}
+
+
+/* =====================================
+   MODALITÀ CALMA
+===================================== */
+
+function calmMode() {
+
+    document.body.classList.toggle("calm-mode");
+
+    const active =
+        document.body.classList.contains("calm-mode");
+
+    if (active) {
+
+        document.getElementById("phase").textContent =
+            "Respira lentamente";
+
+    }
+}
+
+
+/* =====================================
+   TASTO ESC
+===================================== */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        stopBreathing();
+        stopSound();
+
+    }
+
+});
 
 </script>
 
