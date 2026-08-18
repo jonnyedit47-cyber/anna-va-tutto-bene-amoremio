@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Per Anna ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #fff0f5, #ffdce8, #fff5f8);
+    color: #68263e;
+    overflow-x: hidden;
+}
+
+/* CUORI SULLO SFONDO */
+
+.heart {
+    position: fixed;
+    color: #f28baa;
+    opacity: 0.35;
+    font-size: 30px;
+    animation: float 7s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.h1 { top: 10%; left: 8%; animation-delay: 0s; }
+.h2 { top: 25%; right: 8%; animation-delay: 2s; }
+.h3 { top: 65%; left: 5%; animation-delay: 1s; }
+.h4 { top: 75%; right: 10%; animation-delay: 3s; }
+.h5 { top: 45%; left: 15%; animation-delay: 4s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(8deg);
+    }
+}
+
+/* CONTENITORE */
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 35px 20px 50px;
+    text-align: center;
+}
+
+/* NOME */
+
+.name {
+    font-family: Georgia, serif;
+    font-size: 70px;
+    font-style: italic;
+    color: #e94f7b;
+    margin: 10px 0 0;
+    text-shadow: 0 4px 15px rgba(233, 79, 123, 0.2);
+}
+
+.small-heart {
+    color: #ec5c83;
+    font-size: 25px;
+}
+
+/* TITOLO */
+
+h1 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    margin: 15px 0 10px;
+}
+
+.subtitle {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #87465c;
+}
+
+/* CUORE DECORATIVO */
+
+.decor {
+    font-size: 25px;
+    color: #ed6489;
+    margin: 15px 0;
+}
+
+/* PULSANTE */
+
+button {
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #f25d87, #df3769);
+    padding: 17px 45px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(220, 55, 105, 0.3);
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(220, 55, 105, 0.4);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* MESSAGGIO */
+
+.love-message {
+    margin: 25px auto;
+    font-size: 18px;
+    color: #d64c76;
+}
+
+/* SEZIONE RESPIRAZIONE */
+
+#breathing {
+    display: none;
+    margin-top: 35px;
+}
+
+/* CERCHIO */
+
+.circle-container {
+    width: 280px;
+    height: 280px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ffd4e1, #f56b94);
+    box-shadow:
+        0 0 0 12px rgba(245, 107, 148, 0.15),
+        0 0 0 25px rgba(245, 107, 148, 0.08),
+        0 15px 40px rgba(220, 60, 110, 0.25);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: scale(1);
+    transition: transform 4s ease-in-out;
+}
+
+.circle-heart {
+    color: white;
+    font-size: 55px;
+    text-shadow: 0 3px 10px rgba(180, 40, 80, 0.2);
+}
+
+/* FASE */
+
+.phase {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #df4c77;
+    margin-top: 10px;
+}
+
+.counter {
+    font-size: 55px;
+    font-weight: bold;
+    color: #7b3049;
+    margin-top: 5px;
+}
+
+.seconds {
+    color: #986073;
+}
+
+/* BOX ISTRUZIONI */
+
+.instructions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 30px 0;
+}
+
+.card {
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 20px;
+    padding: 18px 10px;
+    box-shadow: 0 8px 25px rgba(180, 70, 100, 0.08);
+}
+
+.card .icon {
+    font-size: 25px;
+}
+
+.card strong {
+    display: block;
+    color: #e04e78;
+    margin: 8px 0;
+}
+
+.card span {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #795062;
+}
+
+/* MESSAGGIO FINALE */
+
+.final-message {
+    background: rgba(255,255,255,0.65);
+    border-radius: 25px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 8px 25px rgba(180, 70, 100, 0.08);
+}
+
+.final-message h2 {
+    font-family: Georgia, serif;
+    color: #df4c77;
+}
+
+.love {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 25px;
+    color: #e34f7a;
+}
+
+/* NOTA */
+
+.disclaimer {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #8d6875;
+    margin-top: 30px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 25px 15px 40px;
+    }
+
+    .name {
+        font-size: 55px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+
+    .circle-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .circle {
+        width: 165px;
+        height: 165px;
+    }
+
+    .instructions {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- CUORI -->
+
+<div class="heart h1">♥</div>
+<div class="heart h2">♥</div>
+<div class="heart h3">♡</div>
+<div class="heart h4">♥</div>
+<div class="heart h5">♡</div>
+
+
+<div class="container">
+
+    <!-- HOME -->
+
+    <section id="welcome">
+
+        <div class="small-heart">♥ ♥ ♥</div>
+
+        <div class="name">Anna</div>
+
+        <div class="decor">♡ ─── ♥ ─── ♡</div>
+
+        <h1>Va tutto bene, amore.</h1>
+
+        <div class="subtitle">
+            Sei al sicuro.<br>
+            Sono qui con te.<br>
+            Facciamo un respiro alla volta, insieme. ❤️
+        </div>
+
+        <button onclick="startBreathing()">
+            ♥ &nbsp; RESPIRA
+        </button>
+
+        <div class="love-message">
+            ♥ Sono fiero di te, ogni giorno. ♥
+        </div>
+
+    </section>
+
+
+    <!-- RESPIRAZIONE -->
+
+    <section id="breathing">
+
+        <div class="subtitle">
+            Un respiro alla volta, Anna. ❤️
+        </div>
+
+        <div class="circle-container">
+
+            <div class="circle" id="circle">
+
+                <div class="circle-heart">
+                    ♥
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="phase" id="phase">
+            Preparati
+        </div>
+
+        <div class="counter" id="counter">
+            3
+        </div>
+
+        <div class="seconds">
+            secondi
+        </div>
+
+
+        <div class="instructions">
+
+            <div class="card">
+                <div class="icon">♥</div>
+                <strong>INSPIRA</strong>
+                <span>
+                    Inspira lentamente<br>
+                    per 4 secondi.
+                </span>
+            </div>
+
+            <div class="card">
+                <div class="icon">♡</div>
+                <strong>TRATTIENI</strong>
+                <span>
+                    Rimani ferma<br>
+                    per 4 secondi.
+                </span>
+            </div>
+
+            <div class="card">
+                <div class="icon">♥</div>
+                <strong>ESPIRA</strong>
+                <span>
+                    Lascia uscire lentamente<br>
+                    l'aria per 6 secondi.
+                </span>
+            </div>
+
+        </div>
+
+
+        <button onclick="restart()">
+            ↻ &nbsp; Ricomincia
+        </button>
+
+
+        <div class="final-message">
+
+            <h2>Ricorda, Anna ❤️</h2>
+
+            <p>
+                Non devi affrontare tutto in una volta.
+                Prenditi il tuo tempo.
+            </p>
+
+            <p>
+                Questa sensazione passerà.
+                Un respiro alla volta.
+            </p>
+
+            <div class="love">
+                Ti amo. ♥
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="disclaimer">
+        Questo sito offre un semplice esercizio di respirazione
+        e non sostituisce l'aiuto di un professionista.
+        Se i sintomi sono nuovi, molto intensi o temi che ci sia
+        un'emergenza, cerca assistenza medica immediata.
+    </div>
+
+</div>
+
+
+<script>
+
+let running = false;
+
+const circle = document.getElementById("circle");
+const phase = document.getElementById("phase");
+const counter = document.getElementById("counter");
+
+
+function wait(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+async function countdown(seconds) {
+
+    for (let i = seconds; i > 0; i--) {
+
+        counter.textContent = i;
+
+        await wait(1000);
+
+        if (!running) return;
+    }
+}
+
+
+async function breathingCycle() {
+
+    while (running) {
+
+        /* INSPIRA */
+
+        phase.textContent = "Inspira";
+
+        circle.style.transitionDuration = "4s";
+        circle.style.transform = "scale(1.35)";
+
+        await countdown(4);
+
+        if (!running) return;
+
+
+        /* TRATTIENI */
+
+        phase.textContent = "Trattieni";
+
+        circle.style.transitionDuration = "4s";
+        circle.style.transform = "scale(1.35)";
+
+        await countdown(4);
+
+        if (!running) return;
+
+
+        /* ESPIRA */
+
+        phase.textContent = "Espira";
+
+        circle.style.transitionDuration = "6s";
+        circle.style.transform = "scale(1)";
+
+        await countdown(6);
+
+        if (!running) return;
+    }
+}
+
+
+async function startBreathing() {
+
+    if (running) return;
+
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("breathing").style.display = "block";
+
+    running = true;
+
+    phase.textContent = "Preparati";
+
+    await countdown(3);
+
+    if (running) {
+        breathingCycle();
+    }
+}
+
+
+function restart() {
+
+    running = false;
+
+    circle.style.transitionDuration = "0.5s";
+    circle.style.transform = "scale(1)";
+
+    setTimeout(() => {
+
+        running = true;
+
+        phase.textContent = "Preparati";
+
+        breathingCycle();
+
+    }, 500);
+}
+
+</script>
+
+</body>
+</html>
